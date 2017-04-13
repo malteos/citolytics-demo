@@ -72,7 +72,6 @@ Open and install the MediaWiki in your browser. Add the following lines to the e
 # Add this to the end of your LocalSettings.php
 require_once( "$IP/extensions/Elastica/Elastica.php" );
 require_once( "$IP/extensions/CirrusSearch/CirrusSearch.php" );
-$wgDisableSearchUpdate = true;
 $wgCirrusSearchServers = array( 'localhost' );
 $wgSearchType = 'CirrusSearch';
 $wgCirrusSearchEnableCitolytics = true;
@@ -80,6 +79,14 @@ $wgCirrusSearchDevelOptions['ignore_missing_rev'] = true;
 ```
 
 ### Prepare CirrusSearch index
+
+Create ES index for CirrusSearch:
+
+```
+php $DIR/mediawiki/extensions/CirrusSearch/maintenance/updateSearchIndexConfig.php
+php $DIR/mediawiki/extensions/CirrusSearch/maintenance/forceSearchIndex.php --skipLinks --indexOnSkip
+php $DIR/mediawiki/extensions/CirrusSearch/maintenance/forceSearchIndex.php --skipParse
+```
 
 Download CirrusSearch dump, split the dump in chunks and send the data to Elasticsearch:
 ```
