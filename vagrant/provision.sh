@@ -142,7 +142,8 @@ cp /vagrant/LocalSettings.php /vagrant/mediawiki/
 cp /vagrant/CitolyticsSettings.php /vagrant/mediawiki
 
 # Setup tables
-mysql -u mediawiki -pmediawiki mediawiki < /vagrant/mediawiki/maintenance/tables.sql 
+# replace prefix: /*i*/ /*_*/
+mysql -u mediawiki -pmediawiki mediawiki < /vagrant/dump.sql 
 
 
 
