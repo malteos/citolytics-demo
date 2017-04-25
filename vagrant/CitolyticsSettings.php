@@ -1,4 +1,5 @@
-# Add this to the end of your LocalSettings.php
+<?php
+
 require_once( "$IP/extensions/Elastica/Elastica.php" );
 require_once( "$IP/extensions/CirrusSearch/CirrusSearch.php" );
 $wgCirrusSearchServers = array( 'localhost' );

@@ -25,7 +25,7 @@ then
   sudo apt-get install -y mysql-server php7.0-mysql
   sed -i "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
   mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES; SET GLOBAL max_connect_errors=10000;"
-  mysql -u root -proot -e "GRANT ALL ON $MYSQL_DB.* to '$MYSQL_USER' identified by '$MYSQL_PW';"
+  mysql -u root -proot -e "CREATE DATABASE $MYSQL_DB; GRANT ALL ON $MYSQL_DB.* to '$MYSQL_USER' identified by '$MYSQL_PW';"
 
   sudo /etc/init.d/mysql restart
 
@@ -140,6 +140,10 @@ cd /vagrant/mediawiki/extensions/CirrusSearch && git fetch https://gerrit.wikime
 
 cp /vagrant/LocalSettings.php /vagrant/mediawiki/
 cp /vagrant/CitolyticsSettings.php /vagrant/mediawiki
+
+# Setup tables
+mysql -u mediawiki -pmediawiki mediawiki < /vagrant/mediawiki/maintenance/tables.sql 
+
 
 
 # Prepare Cirrussearch
