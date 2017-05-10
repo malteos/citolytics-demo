@@ -143,8 +143,11 @@ cp /vagrant/CitolyticsSettings.php /vagrant/mediawiki
 
 # Setup tables
 # replace prefix: /*i*/ /*_*/
-mysql -u mediawiki -pmediawiki mediawiki < /vagrant/dump.sql 
+mysql -u $MYSQL_USER -p$MYSQL_PW $MYSQL_DB < /vagrant/dump.sql
 
+
+wget https://dumps.wikimedia.org/simplewiki/20170101/simplewiki-20170101-page.sql.gz
+gzip -d simplewiki-20170101-page.sql.gz
 
 
 # Prepare Cirrussearch

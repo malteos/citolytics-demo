@@ -1,7 +1,32 @@
 # citolytics-demo
 Simple guide (and demo script) for building a MediaWiki-Citolytics demo based on Wikipedia's simplewiki.
 
-## Requirements
+
+## Setup via MediaWiki-Vagrant (recommended)
+
+Install and `vagrant up` the portable MediaWiki development environment. See [guide](https://www.mediawiki.org/wiki/MediaWiki-Vagrant).
+
+```
+# Setup roles
+vagrant up
+vagrant roles enable wikidata
+vagrant roles enable pageimages
+vagrant provision
+vagrant roles enable cirrussearch
+vagrant provision
+
+# Import data (cirrus and citolytics)
+vagrant ssh import-cirrus-data.sh
+./mediawiki-vagrant/import-data.sh
+
+# Pull and enable citolytics
+vagrant ssh -c 'cd /vagrant/extensions/CirrusSearch' && git fetch https://gerrit.wikimedia.org/r/mediawiki/extensions/CirrusSearch refs/changes/26/329626/8 && git checkout FETCH_HEAD'
+vagrant ssh -c 'echo "<?php \$wgCirrusSearchEnableCitolytics = true;" > /vagrant/settings.d/99-CirrusSearchCitolytics.php'
+```
+
+## Standalone Setup
+
+### Requirements
 
 ```
 php php-mysql php-curl php-xml php-mbstring composer mysql-server elasticsearch git
