@@ -1,5 +1,5 @@
 # citolytics-demo
-Simple guide (and demo script) for building a MediaWiki-Citolytics demo based on Wikipedia's simplewiki.
+Simple guide (and demo script) for building a MediaWiki-Citolytics demo based on Wikipedia's [simplewiki](https://simple.wikipedia.org/).
 
 
 ## Setup via MediaWiki-Vagrant (recommended)
