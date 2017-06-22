@@ -13,91 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <style>
-    /* Space out content a bit */
-    body {
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    /* Everything but the jumbotron gets side spacing for mobile first views */
-    .header,
-    .marketing,
-    .footer {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
-
-    /* Custom page header */
-    .header {
-      padding-bottom: 20px;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    /* Make the masthead heading the same height as the navigation */
-    .header h3 {
-      margin-top: 0;
-      margin-bottom: 0;
-      line-height: 40px;
-    }
-
-    /* Custom page footer */
-    .footer {
-      padding-top: 19px;
-      color: #777;
-      border-top: 1px solid #e5e5e5;
-    }
-
-    /* Customize container */
-    @media (min-width: 768px) {
-      .container {
-        max-width: 730px;
-      }
-    }
-    .container-narrow > hr {
-      margin: 30px 0;
-    }
-
-    /* Main marketing message and sign up button */
-    .jumbotron {
-      text-align: center;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    .jumbotron .btn {
-      padding: 14px 24px;
-      font-size: 21px;
-    }
-    .jumbotron h1 {
-      font-size: 42px;
-    }
-
-    /* Supporting marketing content */
-    .marketing {
-      margin: 40px 0;
-    }
-    .marketing p + h4 {
-      margin-top: 28px;
-    }
-
-    /* Responsive: Portrait tablets and up */
-    @media screen and (min-width: 768px) {
-      /* Remove the padding we set earlier */
-      .header,
-      .marketing,
-      .footer {
-        padding-right: 0;
-        padding-left: 0;
-      }
-      /* Space out the masthead */
-      .header {
-        margin-bottom: 30px;
-      }
-      /* Remove the bottom border on the jumbotron for visual effect */
-      .jumbotron {
-        border-bottom: 0;
-      }
-    }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -113,7 +29,7 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href=".">Home</a></li>
-            <li role="presentation"><a href="http://citolytics-simple.wmflabs.org/">Demo Wiki</a></li>
+            <!--<li role="presentation"><a href="http://citolytics-simple.wmflabs.org/">Demo Wiki</a></li>-->
             <li role="presentation"><a href="https://github.com/wikimedia/citolytics">GitHub</a></li>
           </ul>
         </nav>
@@ -122,9 +38,9 @@
 
       <div class="jumbotron">
         <h1>Wikipedia Recommender System Evaluation</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="download/simplewiki.apk" role="button">Download Android app (simplewiki)</a></p>
-        <p><a class="btn btn-lg btn-success" href="download/dewiki.apk" role="button">Download Android app (dewiki)</a></p>
+        <p class="lead">Thank for your interest in our research. To participate in this user study, we kindly ask you to download and use our Wikipedia Android app. The app is avaialable in two languages. In order to install the app, you must enable the &quot;Install from Unknown Sources&quot;-settings (instructions below).</p>
+        <p><a class="btn btn-lg btn-success" href="download/app-simplewiki.apk" role="button">Download App (Simple English)</a></p>
+        <p><a class="btn btn-lg btn-success" href="download/app-dewiki.apk" role="button">Download App (German)</a></p>
 
       </div>
 
@@ -136,31 +52,66 @@
         <div class="col-lg-6">
           <h4>How to Enable &quot;Unknown Sources&quot; in Android to Install Apps Outside the Play Store</h4>
           <p>Enabling this function is a piece of cake: Simply go to <b>Settings -&gt; Security</b>.</p>
-          <p><img class="img-responsive" src="android-unknown-sources.jpg"></p>
+          <p><img class="img-responsive img-rounded img-thumbnail" src="android-unknown-sources.jpg"></p>
           <p>Just check <b>Unknown sources</b> and you're all set.</p>
 
           <h4>Where can I find the recommendations?</h4>
           <p>The article recommendations can be found in the bottom of every article page in the &quot;Read More&quot;-section. Some article may not have any recommendations available.</p>
+          <p><img class="img-responsive img-rounded img-thumbnail" src="android-read-more.png"></p>
+
         </div>
 
         <div class="col-lg-6">
+          <h4>What is the purpose of this research?</h4>
+          <p>Recommender systems are a crucial filtering and disconvery tool to manage the vast and continuously increasing volume of information available on the Web. This research aims to contribute
+            to the general research on recommender systems by investigate novel techniques for the task of recommending Wikipedia articles. Working with Wikipedia data has several unique advantages.
+            First, the availability of a very large and diverse text corpus. Second, the openness of Wikipedia’s architecture allows making our source code and evaluation data
+public, thus beneting other researchers. Moreover, this user study can be considered as proof-as-concept of the Citolytics recommender system.
+          </p>
+
+          <h4>What data is collected?</h4>
+          <p>The aim of this research is to evaluate the performance of two recommendation algorithms. The evaluation will be based on user behaviour, i.e. we want to see how algorithms affect the user
+            engagement. In order to quantify the user engagement, we must collect user data. The following data is collected from every app user.
+            <ul>
+              <li>A unique but anonymized install ID (AppInstallId)</li>
+              <li>The page titles viewed by a user and the time spent reading the page</li>
+              <li>The recommendations that are displayed to the user and what recommendation is clicked</li>
+              <li>The session length, i.e. how much time is spent using the application</li>
+              <li>The page titles from pages that are shared through the &quot;Share&quot;-feature</li>
+            </ul>
+          </p>
 
           <h4>What happens to my data?</h4>
           <p>Anonymized data will be published after the user study. Anonymized data will not allow identification of participants.</p>
 
-          <h4>What data is collected?</h4>
-          <p>AppInstallId (anonymized / hashed), pages viewed, recommendations clicked, session length, pages shared.</p>
 
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+          <h4>Research-related questions</h4>
+          <p>For research-related questions please contact Malte Schwarzer. Email: citolytics(at)mieo.de</p>
 
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo.</p>
+          <h4>Imprint</h4>
+          <p>This is a student research project by DAI-Labor.</p>
+          <h5>Responsible according to TMG &sect; 5 and RStV &sect; 55:</h5>
+          <p>The DAI-Labor is a part of Fakult&auml;t IV Elektrotechnik und Informatik at the Technische Universit&auml;t Berlin. Please contact:</p>
+          <h5>Technische Universit&auml;t Berlin</h5>
+          <p>
+            President: Prof. Dr. Christian Thomsen<br>
+            Straße des 17. Juni 135<br>
+            10623 Berlin<br>
+            Phone: +49 30 314-0<br>
+            E-Mail:   pressestelle(at)tu-berlin.de<br>
+            Web:     http://www.tu-berlin.de <br>
+          </p>
+          <h5>DAI-Labor</h5>
+          <p>
+            Scientific Director: Prof. Dr. Ing. Sahin Albayrak<br>
+            Sekretariat TEL 14<br>
+            Ernst-Reuter-Platz 7<br>
+            10587 Berlin<br>
+            Phone: +49 30 314-74000 / 02<br>
+            Fax: +49 30 314 74003<br>
+            E-Mail: sahin.albayrak(at)dai-labor.de <br>
+          </p>
 
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
 
@@ -170,5 +121,15 @@
 
     </div> <!-- /container -->
 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1090820-31', 'auto');
+    ga('send', 'pageview');
+
+  </script>
   </body>
 </html>
